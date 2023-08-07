@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProgressCollectionViewCell: UICollectionReusableView {
+class ProgressHeaderView: UICollectionReusableView {
     
     lazy var cellContentView: UIView = {
         let view = UIView()

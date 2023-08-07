@@ -7,19 +7,12 @@
 
 import UIKit
 
-protocol CreateNewHabitDelegate: AnyObject {
-    func createLabelNewHabit(_ text: String)
-}
-
 protocol HabitsChangeProtocol: AnyObject {
     func habitsDidChange()
 }
 
 class HabitsViewController: UIViewController, UINavigationControllerDelegate  {
     
-    var nameOfSelectedHabit = ""
-    var colorOfSelectedHabit = UIColor()
-    var timeOfSelectedHabit = ""
     let ItemInsets = UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
     let sizeForItem = CGSize(width: UIScreen.main.bounds.size.width - 32, height: 130)
     
@@ -27,6 +20,11 @@ class HabitsViewController: UIViewController, UINavigationControllerDelegate  {
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.register(HabitCollectionViewCell.self, forCellWithReuseIdentifier: "HabitCollectionViewCell")
+        view.register(ProgressHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProgressHeaderView")
+        view.backgroundColor = const.rgbGray
+        view.dataSource = self
+        view.delegate = self
         return view
     }()
     
@@ -34,11 +32,6 @@ class HabitsViewController: UIViewController, UINavigationControllerDelegate  {
         super.viewDidLoad()
         setupNavBar()
         navigationItem.title = "Сегодня"
-        collectionView.register(HabitCollectionViewCell.self, forCellWithReuseIdentifier: "HabitCollectionViewCell")
-        collectionView.register(ProgressCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProgressCollectionViewCell")
-        collectionView.backgroundColor = const.rgbGray
-        collectionView.dataSource = self
-        collectionView.delegate = self
         setupViews()
     }
     
@@ -76,10 +69,7 @@ class HabitsViewController: UIViewController, UINavigationControllerDelegate  {
     }
 }
 
-extension HabitsViewController: CreateNewHabitDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func createLabelNewHabit(_ text: String) {
-        print("")
-    }
+extension HabitsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.size.width - 32, height: 60)
@@ -87,7 +77,7 @@ extension HabitsViewController: CreateNewHabitDelegate, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProgressCollectionViewCell", for: indexPath) as? ProgressCollectionViewCell
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProgressHeaderView", for: indexPath) as? ProgressHeaderView
             headerView?.configureProgressCell()
             
             // Customize the header view
