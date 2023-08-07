@@ -10,7 +10,6 @@
 		22549A1A2A462E3F00A3BC19 /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22549A192A462E3F00A3BC19 /* HabitDetailsViewController.swift */; };
 		22A701432A2DE1980059587B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A701422A2DE1980059587B /* AppDelegate.swift */; };
 		22A701452A2DE1980059587B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A701442A2DE1980059587B /* SceneDelegate.swift */; };
-		22A701472A2DE1980059587B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A701462A2DE1980059587B /* ViewController.swift */; };
 		22A7014C2A2DE1990059587B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22A7014B2A2DE1990059587B /* Assets.xcassets */; };
 		22A7014F2A2DE1990059587B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A7014D2A2DE1990059587B /* LaunchScreen.storyboard */; };
 		22A701572A2DE93F0059587B /* UIConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A701562A2DE93F0059587B /* UIConst.swift */; };
@@ -28,7 +27,6 @@
 		22A7013F2A2DE1980059587B /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22A701422A2DE1980059587B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22A701442A2DE1980059587B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		22A701462A2DE1980059587B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22A7014B2A2DE1990059587B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22A7014E2A2DE1990059587B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22A701502A2DE1990059587B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +51,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		224CA1BC2A811D5B00CC11B0 /* System files */ = {
+			isa = PBXGroup;
+			children = (
+				22A701442A2DE1980059587B /* SceneDelegate.swift */,
+				22A701422A2DE1980059587B /* AppDelegate.swift */,
+				22A701582A2E4CEA0059587B /*  HabitsStore.swift */,
+			);
+			path = "System files";
+			sourceTree = "<group>";
+		};
+		224CA1BD2A811DBD00CC11B0 /* TabBar + UIConst */ = {
+			isa = PBXGroup;
+			children = (
+				22A7015A2A2E52010059587B /* TabBarController.swift */,
+				22A701562A2DE93F0059587B /* UIConst.swift */,
+			);
+			name = "TabBar + UIConst";
+			sourceTree = "<group>";
+		};
+		224CA1BE2A811E0300CC11B0 /* HabitsViewController + Cell */ = {
+			isa = PBXGroup;
+			children = (
+				22A7015C2A2E53570059587B /* HabitsViewController.swift */,
+				22A7018C2A3230A20059587B /* ProgressCollectionViewCell.swift */,
+				22A701882A321FA90059587B /* HabitCollectionViewCell.swift */,
+			);
+			path = "HabitsViewController + Cell";
+			sourceTree = "<group>";
+		};
+		224CA1BF2A811E6700CC11B0 /* HabitViewController + Details */ = {
+			isa = PBXGroup;
+			children = (
+				22A701842A2EF7440059587B /* HabitViewController.swift */,
+				22549A192A462E3F00A3BC19 /* HabitDetailsViewController.swift */,
+			);
+			path = "HabitViewController + Details";
+			sourceTree = "<group>";
+		};
+		224CA1C02A811EB800CC11B0 /* InfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22A7015E2A2E538A0059587B /* InfoViewController.swift */,
+			);
+			path = InfoViewController;
+			sourceTree = "<group>";
+		};
 		22A701362A2DE1980059587B = {
 			isa = PBXGroup;
 			children = (
@@ -72,18 +116,11 @@
 		22A701412A2DE1980059587B /* MyHabits */ = {
 			isa = PBXGroup;
 			children = (
-				22A701422A2DE1980059587B /* AppDelegate.swift */,
-				22A701442A2DE1980059587B /* SceneDelegate.swift */,
-				22A701462A2DE1980059587B /* ViewController.swift */,
-				22A701582A2E4CEA0059587B /*  HabitsStore.swift */,
-				22A7015A2A2E52010059587B /* TabBarController.swift */,
-				22A7015E2A2E538A0059587B /* InfoViewController.swift */,
-				22A7015C2A2E53570059587B /* HabitsViewController.swift */,
-				22A701842A2EF7440059587B /* HabitViewController.swift */,
-				22A701882A321FA90059587B /* HabitCollectionViewCell.swift */,
-				22A7018C2A3230A20059587B /* ProgressCollectionViewCell.swift */,
-				22549A192A462E3F00A3BC19 /* HabitDetailsViewController.swift */,
-				22A701562A2DE93F0059587B /* UIConst.swift */,
+				224CA1BC2A811D5B00CC11B0 /* System files */,
+				224CA1BE2A811E0300CC11B0 /* HabitsViewController + Cell */,
+				224CA1BF2A811E6700CC11B0 /* HabitViewController + Details */,
+				224CA1C02A811EB800CC11B0 /* InfoViewController */,
+				224CA1BD2A811DBD00CC11B0 /* TabBar + UIConst */,
 				22A7014B2A2DE1990059587B /* Assets.xcassets */,
 				22A7014D2A2DE1990059587B /* LaunchScreen.storyboard */,
 				22A701502A2DE1990059587B /* Info.plist */,
@@ -161,7 +198,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22A701472A2DE1980059587B /* ViewController.swift in Sources */,
 				22A701592A2E4CEA0059587B /*  HabitsStore.swift in Sources */,
 				22A7018D2A3230A20059587B /* ProgressCollectionViewCell.swift in Sources */,
 				22A7015D2A2E53570059587B /* HabitsViewController.swift in Sources */,
