@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon-120px-40pt" translatesAutoresizingMaskIntoConstraints="NO" id="76X-zx-9qB">
-                                <rect key="frame" x="128" y="341" width="120" height="104"/>
+                                <rect key="frame" x="128" y="341" width="138" height="131"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="104" id="BMt-74-K2U"/>
                                     <constraint firstAttribute="width" constant="120" id="TTK-ZT-310"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyHabits" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wW1-BB-VD3">
-                                <rect key="frame" x="142.66666666666666" y="691" width="88" height="24"/>
+                                <rect key="frame" x="142.66666666666666" y="691" width="106" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="Dl6-ye-Hyq"/>
                                     <constraint firstAttribute="height" constant="24" id="E39-lH-VbD"/>
