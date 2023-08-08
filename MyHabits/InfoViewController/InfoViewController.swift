@@ -28,7 +28,7 @@ class InfoViewController: UIViewController {
         return view
     }()
     
-    func createLable(_ text: String) -> UILabel {
+    func createLabel(_ text: String) -> UILabel {
         let label = UILabel()
         label.text = text
         label.textColor = .black
@@ -48,26 +48,16 @@ class InfoViewController: UIViewController {
         return label
     }()
     
-    lazy var label0: UILabel = {
-        createLable("Прохождение этапов, за которые за 21 день вырабатывается привычка, подчиняется следующему алгоритму:")
-    }()
-    lazy var label1: UILabel = {
-        createLable("1. Провести 1 день без обращения к старым привычкам, стараться вести себя так, как будто цель загаданная в перспективу, находится на расстоянии шага.")
-    }()
-    lazy var label2: UILabel = {
-        createLable("2. Выдержать 2 дня в прежнем состоянии самоконтроля.")
-    }()
-    lazy var label3: UILabel = {
-        createLable("3. Отметить в дневнике первую неделю изменений и подвести первые итоги — что оказалось тяжело, что — легче, с чем еще предстоит серьезно бороться.")
-    }()
-    lazy var label4: UILabel = {
-        createLable("4. Поздравить себя с прохождением первого серьезного порога в 21 день. За это время отказ от дурных наклонностей уже примет форму осознанного преодоления и человек сможет больше работать в сторону принятия положительных качеств.")
-    }()
-    lazy var label5: UILabel = {
-        createLable("5. Держать планку 40 дней. Практикующий методику уже чувствует себя освободившимся от прошлого негатива и двигается в нужном направлении с хорошей динамикой.")
-    }()
-    lazy var label6: UILabel = {
-        createLable("6. На 90-й день соблюдения техники все лишнее из «прошлой жизни» перестает напоминать о себе, и человек, оглянувшись назад, осознает себя полностью обновившимся.")
+    lazy var labelText: UILabel = {
+        createLabel("""
+        Прохождение этапов, за которые за 21 день вырабатывается привычка, подчиняется следующему алгоритму:
+        1. Провести 1 день без обращения к старым привычкам, стараться вести себя так, как будто цель загаданная в перспективу, находится на расстоянии шага.
+        2. Выдержать 2 дня в прежнем состоянии самоконтроля.
+        3. Отметить в дневнике первую неделю изменений и подвести первые итоги — что оказалось тяжело, что — легче, с чем еще предстоит серьезно бороться.
+        4. Поздравить себя с прохождением первого серьезного порога в 21 день. За это время отказ от дурных наклонностей уже примет форму осознанного преодоления и человек сможет больше работать в сторону принятия положительных качеств.
+        5. Держать планку 40 дней. Практикующий методику уже чувствует себя освободившимся от прошлого негатива и двигается в нужном направлении с хорошей динамикой.
+        6. На 90-й день соблюдения техники все лишнее из «прошлой жизни» перестает напоминать о себе, и человек, оглянувшись назад, осознает себя полностью обновившимся.
+""")
     }()
     
     private func setupViews() {
@@ -75,7 +65,7 @@ class InfoViewController: UIViewController {
         view.addSubview(scrollView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(containerView)
-        [headerLabel, label0, label1, label2, label3, label4, label5, label6].forEach {
+        [headerLabel, labelText].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             containerView.addSubview($0)
         }
@@ -97,34 +87,9 @@ class InfoViewController: UIViewController {
             headerLabel.widthAnchor.constraint(equalToConstant: 218),
             headerLabel.heightAnchor.constraint(equalToConstant: 24),
             
-            label0.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 22),
-            label0.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: const.inset16),
-            label0.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -const.inset16),
-            
-            label1.topAnchor.constraint(equalTo: label0.bottomAnchor, constant: const.inset16),
-            label1.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: const.inset16),
-            label1.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -const.inset16),
-            
-            label2.topAnchor.constraint(equalTo: label1.bottomAnchor, constant: const.inset16),
-            label2.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: const.inset16),
-            label2.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -const.inset16),
-            
-            label3.topAnchor.constraint(equalTo: label2.bottomAnchor, constant: const.inset16),
-            label3.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: const.inset16),
-            label3.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -const.inset16),
-            
-            label4.topAnchor.constraint(equalTo: label3.bottomAnchor, constant: const.inset16),
-            label4.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: const.inset16),
-            label4.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -const.inset16),
-            
-            label5.topAnchor.constraint(equalTo: label4.bottomAnchor, constant: const.inset16),
-            label5.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: const.inset16),
-            label5.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -const.inset16),
-            
-            label6.topAnchor.constraint(equalTo: label5.bottomAnchor, constant: const.inset16),
-            label6.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: const.inset16),
-            label6.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -const.inset16),
-            label6.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -const.inset16)
+            labelText.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 22),
+            labelText.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: const.inset16),
+            labelText.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -const.inset16)
         ])
     }
 }

@@ -18,7 +18,7 @@ class ProgressHeaderView: UICollectionReusableView {
         return view
     }()
     
-    lazy var motoLable: UILabel = {
+    lazy var mottoLable: UILabel = {
         let label = UILabel()
         label.font = const.footnoteSmallFont
         label.textColor = const.sistemGray
@@ -26,7 +26,7 @@ class ProgressHeaderView: UICollectionReusableView {
         return label
     }()
     
-    lazy var persentLabel: UILabel = {
+    lazy var percentLabel: UILabel = {
         let label = UILabel()
         label.font = const.footnoteSmallFont
         label.textColor = const.sistemGray
@@ -34,21 +34,17 @@ class ProgressHeaderView: UICollectionReusableView {
         return label
     }()
     
-    lazy var slider: UISlider = {
-        let slider = UISlider()
-        slider.minimumValue = 0
-        slider.maximumValue = 100
-        slider.tintColor = const.rgbPurple
-        slider.layer.cornerRadius = 5
-        slider.thumbTintColor = .clear
-        slider.setThumbImage(UIImage(), for: .normal)
-        return slider
+    lazy var spinnerView: UIProgressView = {
+        let spinner = UIProgressView()
+        spinner.tintColor = const.rgbPurple
+        spinner.layer.cornerRadius = 5
+        return spinner
     }()
     
     func configureProgressCell() {
-        motoLable.text = "Всё получится!"
-        persentLabel.text = "\(Int(HabitsStore.shared.todayProgress * 100))%"
-        slider.value = HabitsStore.shared.todayProgress * 100
+        mottoLable.text = "Всё получится!"
+        percentLabel.text = "\(Int(HabitsStore.shared.todayProgress * 100))%"
+        spinnerView.setProgress(HabitsStore.shared.todayProgress, animated: true)
     }
     
     required init?(coder: NSCoder) {
@@ -63,7 +59,7 @@ class ProgressHeaderView: UICollectionReusableView {
     func setupViews() {
         cellContentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(cellContentView)
-        [motoLable, persentLabel, slider].forEach {
+        [mottoLable, percentLabel, spinnerView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             cellContentView.addSubview($0)
         }
@@ -74,18 +70,18 @@ class ProgressHeaderView: UICollectionReusableView {
             cellContentView.heightAnchor.constraint(equalToConstant: 60),
             cellContentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            motoLable.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: 10),
-            motoLable.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: 12),
-            motoLable.heightAnchor.constraint(equalToConstant: 18),
+            mottoLable.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: 10),
+            mottoLable.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: 12),
+            mottoLable.heightAnchor.constraint(equalToConstant: 18),
             
-            persentLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: 10),
-            persentLabel.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -12),
-            persentLabel.heightAnchor.constraint(equalToConstant: 18),
+            percentLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: 10),
+            percentLabel.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -12),
+            percentLabel.heightAnchor.constraint(equalToConstant: 18),
             
-            slider.topAnchor.constraint(equalTo: motoLable.bottomAnchor, constant: 10),
-            slider.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: 12),
-            slider.heightAnchor.constraint(equalToConstant: 7),
-            slider.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -12)
+            spinnerView.topAnchor.constraint(equalTo: mottoLable.bottomAnchor, constant: 10),
+            spinnerView.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: 12),
+            spinnerView.heightAnchor.constraint(equalToConstant: 7),
+            spinnerView.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -12)
         ])
     }
 }
