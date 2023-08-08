@@ -18,7 +18,7 @@ class ProgressHeaderView: UICollectionReusableView {
         return view
     }()
     
-    lazy var mottoLable: UILabel = {
+    lazy var mottoLabel: UILabel = {
         let label = UILabel()
         label.font = const.footnoteSmallFont
         label.textColor = const.sistemGray
@@ -34,17 +34,17 @@ class ProgressHeaderView: UICollectionReusableView {
         return label
     }()
     
-    lazy var spinnerView: UIProgressView = {
-        let spinner = UIProgressView()
-        spinner.tintColor = const.rgbPurple
-        spinner.layer.cornerRadius = 5
-        return spinner
+    lazy var progressView: UIProgressView = {
+        let view = UIProgressView()
+        view.tintColor = const.rgbPurple
+        view.layer.cornerRadius = 5
+        return view
     }()
     
     func configureProgressCell() {
-        mottoLable.text = "Всё получится!"
+        mottoLabel.text = "Всё получится!"
         percentLabel.text = "\(Int(HabitsStore.shared.todayProgress * 100))%"
-        spinnerView.setProgress(HabitsStore.shared.todayProgress, animated: true)
+        progressView.setProgress(HabitsStore.shared.todayProgress, animated: true)
     }
     
     required init?(coder: NSCoder) {
@@ -59,7 +59,7 @@ class ProgressHeaderView: UICollectionReusableView {
     func setupViews() {
         cellContentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(cellContentView)
-        [mottoLable, percentLabel, spinnerView].forEach {
+        [mottoLabel, percentLabel, progressView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             cellContentView.addSubview($0)
         }
@@ -70,18 +70,18 @@ class ProgressHeaderView: UICollectionReusableView {
             cellContentView.heightAnchor.constraint(equalToConstant: 60),
             cellContentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            mottoLable.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: 10),
-            mottoLable.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: 12),
-            mottoLable.heightAnchor.constraint(equalToConstant: 18),
+            mottoLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: 10),
+            mottoLabel.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: 12),
+            mottoLabel.heightAnchor.constraint(equalToConstant: 18),
             
             percentLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: 10),
             percentLabel.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -12),
             percentLabel.heightAnchor.constraint(equalToConstant: 18),
             
-            spinnerView.topAnchor.constraint(equalTo: mottoLable.bottomAnchor, constant: 10),
-            spinnerView.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: 12),
-            spinnerView.heightAnchor.constraint(equalToConstant: 7),
-            spinnerView.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -12)
+            progressView.topAnchor.constraint(equalTo: mottoLabel.bottomAnchor, constant: 10),
+            progressView.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: 12),
+            progressView.heightAnchor.constraint(equalToConstant: 7),
+            progressView.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -12)
         ])
     }
 }
