@@ -89,7 +89,8 @@ class InfoViewController: UIViewController {
             
             labelText.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 22),
             labelText.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: const.inset16),
-            labelText.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -const.inset16)
+            labelText.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -const.inset16),
+            labelText.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -const.inset16)
         ])
     }
 }
